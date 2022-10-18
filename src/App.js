@@ -46,3 +46,21 @@ function App() {
 }
 
 export default App;
+
+// export const ADD_USER = gql`
+//   mutation ($login: String, $avatar_url: String) {
+//     createUser(login: $login, avatar_url: $avatar_url)
+//   }
+// `;
+
+// export const EDIT_USER = gql`
+//   mutation ($id: Int, $login: String, $avatar_url: String) {
+//     updateUserInfo(id: $id, login: $login, avatar_url: $avatar_url)
+//   }
+// `;
+
+// export const DELETE_USER = gql`
+//   mutation ($id: Int) {
+//     deleteUser(id: $id)
+//   }
+// `;
