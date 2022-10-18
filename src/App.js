@@ -9,17 +9,18 @@ const GET_USERS = gql`
       id
       login
       avatar_url
-      html_url
     }
   }
 `;
 
-const User = ({ user: { login, avatar_url, html_url } }) => (
+const User = ({ user: { login, avatar_url, } }) => (
   <div className='Card'>
     <div>
       <img alt='avatar' className='Card--avatar' src={avatar_url} />
       <h1 className='Card--name'>{login}</h1>
-      {/* <h1 className='Card--name'>{followers_url.length}</h1> */}
+    </div>
+    <div>
+      {/* <h1 className='Card--name'> {html_url}</h1> */}
     </div>
     <a href={`https://github.com/${login}`} className='Card--link'>
       See profile
@@ -30,7 +31,8 @@ const User = ({ user: { login, avatar_url, html_url } }) => (
 function App() {
   const { loading, error, data } = useQuery(GET_USERS);
   console.log(data);
-  if (error) return <h1>Something went wrong!</h1>;
+  console.log('error', error)
+  if (error) return <h1>Something went wrong! {error.Error.message}</h1>;
   if (loading) return <h1>Loading...</h1>;
 
   return (
